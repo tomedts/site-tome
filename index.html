@@ -18,6 +18,40 @@
             background-color: #f4f7f6;
             color: #333;
             line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* --- ESTILO COMUM PARA AS IMAGENS FLUTUANTES DECORATIVAS --- */
+        .imagem-decorativa {
+            position: absolute;
+            /* AJUSTE: DESCERAM MAIS UM POUCO (DE 280px PARA 320px) PARA LIVRAR O CABEÇALHO */
+            top: 320px; 
+            z-index: 1;
+            pointer-events: none;
+            transition: 0.5s;
+        }
+
+        .imagem-decorativa img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border: 4px solid #fff;
+            transform: rotate(-10deg); 
+        }
+
+        /* --- SUSPENSÃO (ESQUERDA) --- */
+        .suspencao-flutuante {
+            left: 15px; 
+            /* AJUSTE: DIMINUÍDA PARA 220px PARA NÃO CORTAR O LINK DO WHATSAPP */
+            width: 220px; 
+        }
+
+        /* --- GUINCHO (DIREITA) --- */
+        .guincho-flutuante {
+            right: 15px;
+            width: 280px; 
         }
 
         /* Header e Logo */
@@ -25,6 +59,8 @@
             background-color: #ffffff;
             padding: 30px 20px 10px 20px;
             text-align: center;
+            position: relative;
+            z-index: 10;
         }
 
         header img {
@@ -34,7 +70,7 @@
             margin-bottom: 15px;
         }
 
-        /* Barra de Contatos no Topo */
+        /* Barra de Contatos */
         .top-contacts {
             display: flex;
             justify-content: center;
@@ -53,153 +89,125 @@
             font-weight: bold;
             color: #444;
             text-decoration: none;
-            transition: 0.3s;
         }
 
-        .contact-item:hover {
-            color: #0056b3;
-        }
-
-        /* Grid de Botões */
+        /* Conteúdo Principal */
         .container {
-            max-width: 900px;
+            max-width: 950px;
             margin: 0 auto;
             padding: 40px 20px;
+            position: relative;
+            z-index: 5;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         .section-title h2 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: #0056b3;
+            margin-bottom: 10px;
         }
 
+        /* Grid de Botões */
         .whatsapp-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
             margin-bottom: 50px;
+            max-width: 800px;
         }
 
-        /* Botão com Miniatura */
+        /* Botão Reto Padrão */
         .btn-whatsapp {
             display: flex;
-            flex-direction: row;
             align-items: center;
             justify-content: space-between;
             background-color: #fff;
             border-bottom: 4px solid #25D366;
-            color: #333;
-            padding: 15px 20px;
+            padding: 18px 20px;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 10px;
             font-weight: bold;
-            transition: 0.3s;
+            color: #333;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
         }
 
         .btn-whatsapp:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             background-color: #f0fff4;
         }
 
-        .btn-text-content {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            flex: 1;
-            margin-right: 10px;
-        }
-
-        .btn-whatsapp span.subtitle {
-            font-size: 0.8rem;
-            color: #666;
-            font-weight: normal;
-        }
-
         .thumb-container {
-            width: 80px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 70px;
+            height: 50px;
             overflow: hidden;
             border-radius: 4px;
-            background-color: #fff;
-            border: 1px solid #ddd;
+            border: 1px solid #eee;
         }
 
         .thumb-container img {
-            max-width: 100%;
-            max-height: 100%;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
         }
 
         /* Seção Sobre */
         .sobre {
             background-color: #fff;
-            padding: 40px;
+            padding: 30px;
             border-radius: 12px;
-            margin-bottom: 50px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-top: 20px;
             border-left: 6px solid #0056b3;
-        }
-
-        /* Botão Flutuante */
-        .whatsapp-fixed {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25D366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            text-decoration: none;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
         /* Rodapé */
         footer {
             background-color: #222;
             color: #fff;
-            padding: 50px 20px;
+            padding: 40px 20px;
             text-align: center;
+            margin-top: 50px;
         }
 
-        @media (max-width: 700px) {
+        /* AJUSTES PARA CELULAR */
+        @media (max-width: 900px) {
+            .imagem-decorativa {
+                position: relative;
+                top: 0;
+                left: 0;
+                right: 0;
+                width: 180px; 
+                margin: 0 auto 20px auto;
+                display: block;
+            }
             .whatsapp-grid {
                 grid-template-columns: 1fr;
-            }
-            .top-contacts {
-                flex-direction: column;
-                gap: 10px;
+                max-width: 100%;
             }
         }
     </style>
 </head>
 <body>
 
-    <a href="https://wa.me/5513996036192" class="whatsapp-fixed" target="_blank">💬</a>
+    <div class="imagem-decorativa suspencao-flutuante">
+        <img src="suspencao.png" alt="Processo de Suspensão CNH">
+    </div>
+
+    <div class="imagem-decorativa guincho-flutuante">
+        <img src="guincho.png" alt="Guincho Tomé Despachante">
+    </div>
 
     <header>
         <img src="logo.png" alt="Tomé Despachante Logo">
         <div class="top-contacts">
-            <a href="https://wa.me/5513996036192" class="contact-item" target="_blank">
-                <span style="color: #25D366;">🟢</span> 13 99603-6192
-            </a>
-            <a href="tel:1333752330" class="contact-item">
-                <span>📞</span> 13 3375-2330
-            </a>
+            <a href="https://wa.me/5513996036192" class="contact-item">🟢 13 99603-6192</a>
+            <a href="tel:1333752330" class="contact-item">📞 13 3375-2330</a>
         </div>
     </header>
 
@@ -211,60 +219,38 @@
         </div>
 
         <div class="whatsapp-grid">
-            <a href="https://wa.me/5513996036192?text=Assunto:%20VEÍCULO%0APLACA:" target="_blank" class="btn-whatsapp">
-                <div class="btn-text-content">
-                    <div>🚗 VEÍCULO</div>
-                    <span class="subtitle">Licenciamento e Transferência</span>
-                </div>
-                <div class="thumb-container">
-                    <img src="CRLV.png" alt="CRLV">
-                </div>
+            <a href="https://wa.me/5513996036192?text=Assunto:VEICULO" class="btn-whatsapp">
+                <div>🚗 VEÍCULO<br><small style="font-weight:normal;color:#666">Licenciamento e Transferência</small></div>
+                <div class="thumb-container"><img src="CRLV.png"></div>
             </a>
             
-            <a href="https://wa.me/5513996036192?text=Assunto:%20CNH" target="_blank" class="btn-whatsapp">
-                <div class="btn-text-content">
-                    <div>🆔 CNH</div>
-                    <span class="subtitle">Renovação e Consultas</span>
-                </div>
-                <div class="thumb-container">
-                    <img src="cnh.jfif" alt="CNH">
-                </div>
+            <a href="https://wa.me/5513996036192?text=Assunto:CNH" class="btn-whatsapp">
+                <div>🆔 CNH<br><small style="font-weight:normal;color:#666">Renovação e Consultas</small></div>
+                <div class="thumb-container"><img src="cnh.jfif"></div>
             </a>
 
-            <a href="https://wa.me/5513996036192?text=Assunto:%20CURSO" target="_blank" class="btn-whatsapp">
-                <div class="btn-text-content">
-                    <div>📚 CURSOS</div>
-                    <span class="subtitle">MOPP e Profissionais</span>
-                </div>
-                <div class="thumb-container">
-                    <img src="CURSOS.jpeg" alt="Cursos Especializados">
-                </div>
+            <a href="https://wa.me/5513996036192?text=Assunto:CURSOS" class="btn-whatsapp">
+                <div>📚 CURSOS<br><small style="font-weight:normal;color:#666">MOPP e Profissionais</small></div>
+                <div class="thumb-container"><img src="CURSOS.jpeg"></div>
             </a>
 
-            <a href="https://wa.me/5513996036192?text=Assunto:%20ANTT" target="_blank" class="btn-whatsapp">
-                <div class="btn-text-content">
-                    <div>🚛 ANTT</div>
-                    <span class="subtitle">Registro e Renovação</span>
-                </div>
-                <div class="thumb-container">
-                    <img src="ANTT.png" alt="ANTT">
-                </div>
+            <a href="https://wa.me/5513996036192?text=Assunto:ANTT" class="btn-whatsapp">
+                <div>🚛 ANTT<br><small style="font-weight:normal;color:#666">Registro e Renovação</small></div>
+                <div class="thumb-container"><img src="ANTT.png"></div>
+            </a>
+
+            <a href="https://wa.me/5513996036192?text=Assunto:GUINCHO" class="btn-whatsapp">
+                <div>🏗️ GUINCHO<br><small style="font-weight:normal;color:#666">Socorro e Transporte</small></div>
+                <div class="thumb-container"><img src="guincho.png"></div>
             </a>
         </div>
 
         <section class="sobre">
             <h3>Sobre a Tomé Despachante</h3>
-            <p>Localizada em <b>Cubatão/SP</b>, a Tomé Despachante oferece soluções rápidas para documentação veicular e habilitação com a confiança do registro <b>CRDD/SP 002398-1</b>.</p>
+            <p>Atendimento especializado em Cubatão/SP com a confiança do registro <b>CRDD/SP 002398-1</b>.</p>
         </section>
 
     </div>
 
     <footer>
-        <p><b>Tomé Despachante</b></p>
-        <p>Cubatão - SP | Segunda a Sexta</p>
-        <p>Horário: 08:00 às 17:00hs</p>
-        <p style="margin-top: 20px; font-size: 0.8rem; opacity: 0.6;">&copy; 2026 Tomé Despachante.</p>
-    </footer>
-
-</body>
-</html>
+        <p><b>Tomé Despachante
