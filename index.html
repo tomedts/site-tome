@@ -18,67 +18,32 @@
             background-color: #f4f7f6;
             color: #333;
             line-height: 1.6;
-            position: relative;
             overflow-x: hidden;
         }
 
-        /* --- ESTILO COMUM PARA AS IMAGENS FLUTUANTES DECORATIVAS --- */
-        .imagem-decorativa {
-            position: absolute;
-            /* AJUSTE: DESCERAM MAIS UM POUCO (DE 280px PARA 320px) PARA LIVRAR O CABEÇALHO */
-            top: 320px; 
-            z-index: 1;
-            pointer-events: none;
-            transition: 0.5s;
-        }
-
-        .imagem-decorativa img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            border: 4px solid #fff;
-            transform: rotate(-10deg); 
-        }
-
-        /* --- SUSPENSÃO (ESQUERDA) --- */
-        .suspencao-flutuante {
-            left: 15px; 
-            /* AJUSTE: DIMINUÍDA PARA 220px PARA NÃO CORTAR O LINK DO WHATSAPP */
-            width: 220px; 
-        }
-
-        /* --- GUINCHO (DIREITA) --- */
-        .guincho-flutuante {
-            right: 15px;
-            width: 280px; 
-        }
-
-        /* Header e Logo */
+        /* --- CABEÇALHO: LOGO ESQUERDA E CONTATOS DIREITA --- */
         header {
             background-color: #ffffff;
-            padding: 30px 20px 10px 20px;
-            text-align: center;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             position: relative;
             z-index: 10;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
         header img {
-            max-width: 500px;
+            max-width: 380px;
             width: 100%;
             height: auto;
-            margin-bottom: 15px;
         }
 
-        /* Barra de Contatos */
         .top-contacts {
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
-            background-color: #fff;
-            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 5px;
         }
 
         .contact-item {
@@ -91,11 +56,32 @@
             text-decoration: none;
         }
 
+        /* --- IMAGENS DECORATIVAS ABAIXO DO HEADER --- */
+        .container-decorativo {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .imagem-decorativa {
+            width: 250px;
+            transition: 0.5s;
+        }
+
+        .imagem-decorativa img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border: 4px solid #fff;
+        }
+
         /* Conteúdo Principal */
         .container {
             max-width: 950px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 20px;
             position: relative;
             z-index: 5;
         }
@@ -118,9 +104,10 @@
             gap: 20px;
             margin-bottom: 50px;
             max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        /* Botão Reto Padrão */
         .btn-whatsapp {
             display: flex;
             align-items: center;
@@ -138,7 +125,6 @@
 
         .btn-whatsapp:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             background-color: #f0fff4;
         }
 
@@ -156,17 +142,16 @@
             object-fit: cover;
         }
 
-        /* Seção Sobre */
         .sobre {
             background-color: #fff;
             padding: 30px;
             border-radius: 12px;
-            margin-top: 20px;
             border-left: 6px solid #0056b3;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
         }
 
-        /* Rodapé */
+        /* Rodapé com Endereço */
         footer {
             background-color: #222;
             color: #fff;
@@ -175,33 +160,50 @@
             margin-top: 50px;
         }
 
-        /* AJUSTES PARA CELULAR */
-        @media (max-width: 900px) {
-            .imagem-decorativa {
-                position: relative;
-                top: 0;
-                left: 0;
-                right: 0;
-                width: 180px; 
-                margin: 0 auto 20px auto;
-                display: block;
+        footer p {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            color: #ccc;
+        }
+
+        footer b {
+            color: #fff;
+        }
+
+        /* --- AJUSTES PARA CELULAR --- */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px;
             }
+
+            header img {
+                max-width: 250px;
+                margin-bottom: 10px;
+            }
+
+            .top-contacts {
+                align-items: center;
+                padding-bottom: 10px;
+            }
+
+            .container-decorativo {
+                gap: 10px;
+                padding: 10px;
+            }
+
+            .imagem-decorativa {
+                width: 100px;
+            }
+
             .whatsapp-grid {
                 grid-template-columns: 1fr;
-                max-width: 100%;
             }
         }
     </style>
 </head>
 <body>
-
-    <div class="imagem-decorativa suspencao-flutuante">
-        <img src="suspencao.png" alt="Processo de Suspensão CNH">
-    </div>
-
-    <div class="imagem-decorativa guincho-flutuante">
-        <img src="guincho.png" alt="Guincho Tomé Despachante">
-    </div>
 
     <header>
         <img src="logo.png" alt="Tomé Despachante Logo">
@@ -210,6 +212,15 @@
             <a href="tel:1333752330" class="contact-item">📞 13 3375-2330</a>
         </div>
     </header>
+
+    <div class="container-decorativo">
+        <div class="imagem-decorativa">
+            <img src="suspencao.png" alt="Processo de Suspensão CNH">
+        </div>
+        <div class="imagem-decorativa">
+            <img src="guincho.png" alt="Guincho Tomé Despachante">
+        </div>
+    </div>
 
     <div class="container">
         
@@ -253,4 +264,10 @@
     </div>
 
     <footer>
-        <p><b>Tomé Despachante
+        <p><b>📍 Endereço:</b> Rua Epitacio Pessoa, 89 - Sala 1 - Vila Elizabeth<br>
+        CEP 11550-020 - Cubatão - SP (Ao lado do Posto Viaduto)</p>
+        <p><b>Tomé Despachante</b> &copy; 2026 - Todos os direitos reservados</p>
+    </footer>
+
+</body>
+</html>
