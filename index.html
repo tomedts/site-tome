@@ -56,6 +56,13 @@
             text-decoration: none;
         }
 
+        /* AJUSTE PARA O NOVO ÍCONE DE IMAGEM */
+        .contact-item img.icon-img {
+            width: 20px; /* Define o tamanho do ícone */
+            height: 20px;
+            object-fit: contain;
+        }
+
         /* --- IMAGENS DECORATIVAS ABAIXO DO HEADER --- */
         .container-decorativo {
             display: flex;
@@ -208,7 +215,9 @@
     <header>
         <img src="logo.png" alt="Tomé Despachante Logo">
         <div class="top-contacts">
-            <a href="https://wa.me/5513996036192" class="contact-item">🟢 13 99603-6192</a>
+            <a href="https://wa.me/5513996036192" class="contact-item">
+                <img src="whatsapp-novo.png" alt="WhatsApp" class="icon-img"> 13 99603-6192
+            </a>
             <a href="tel:1333752330" class="contact-item">📞 13 3375-2330</a>
         </div>
     </header>
