@@ -56,9 +56,8 @@
             text-decoration: none;
         }
 
-        /* AJUSTE PARA O NOVO ÍCONE DE IMAGEM */
         .contact-item img.icon-img {
-            width: 20px; /* Define o tamanho do ícone */
+            width: 20px;
             height: 20px;
             object-fit: contain;
         }
@@ -74,6 +73,7 @@
         .imagem-decorativa {
             width: 250px;
             transition: 0.5s;
+            text-decoration: none;
         }
 
         .imagem-decorativa img {
@@ -82,6 +82,11 @@
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
             border: 4px solid #fff;
+            transition: transform 0.3s;
+        }
+
+        .imagem-decorativa img:hover {
+            transform: scale(1.02);
         }
 
         /* Conteúdo Principal */
@@ -121,18 +126,25 @@
             justify-content: space-between;
             background-color: #fff;
             border-bottom: 4px solid #25D366;
-            padding: 18px 20px;
+            padding: 15px 20px;
             text-decoration: none;
             border-radius: 10px;
             font-weight: bold;
             color: #333;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             transition: 0.3s;
+            min-height: 85px; /* Altura mínima para evitar quebras */
         }
 
         .btn-whatsapp:hover {
             transform: translateY(-5px);
             background-color: #f0fff4;
+        }
+
+        .btn-text {
+            flex: 1;
+            padding-right: 10px;
+            font-size: 0.95rem;
         }
 
         .thumb-container {
@@ -141,6 +153,7 @@
             overflow: hidden;
             border-radius: 4px;
             border: 1px solid #eee;
+            flex-shrink: 0;
         }
 
         .thumb-container img {
@@ -173,10 +186,6 @@
             color: #ccc;
         }
 
-        footer b {
-            color: #fff;
-        }
-
         /* --- AJUSTES PARA CELULAR --- */
         @media (max-width: 768px) {
             header {
@@ -201,11 +210,16 @@
             }
 
             .imagem-decorativa {
-                width: 100px;
+                width: 110px;
             }
 
             .whatsapp-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .btn-whatsapp {
+                min-height: auto;
+                padding: 12px 15px;
             }
         }
     </style>
@@ -223,12 +237,12 @@
     </header>
 
     <div class="container-decorativo">
-        <div class="imagem-decorativa">
+        <a href="https://wa.me/5513996036192?text=Assunto:SUSPENSÃO" class="imagem-decorativa">
             <img src="suspencao.png" alt="Processo de Suspensão CNH">
-        </div>
-        <div class="imagem-decorativa">
-            <img src="guincho.png" alt="Guincho Tomé Despachante">
-        </div>
+        </a>
+        <a href="https://wa.me/5513996036192?text=Assunto:LIBERAÇÃO DE PÁTIO" class="imagem-decorativa">
+            <img src="guincho.png" alt="Liberação de Pátio">
+        </a>
     </div>
 
     <div class="container">
@@ -240,27 +254,27 @@
 
         <div class="whatsapp-grid">
             <a href="https://wa.me/5513996036192?text=Assunto:VEICULO" class="btn-whatsapp">
-                <div>🚗 VEÍCULO<br><small style="font-weight:normal;color:#666">Licenciamento e Transferência</small></div>
+                <div class="btn-text">🚗 VEÍCULO<br><small style="font-weight:normal;color:#666">Licenciamento e Transferência</small></div>
                 <div class="thumb-container"><img src="CRLV.png"></div>
             </a>
             
             <a href="https://wa.me/5513996036192?text=Assunto:CNH" class="btn-whatsapp">
-                <div>🆔 CNH<br><small style="font-weight:normal;color:#666">Renovação e Consultas</small></div>
+                <div class="btn-text">🆔 CNH<br><small style="font-weight:normal;color:#666">Renovação e Consultas</small></div>
                 <div class="thumb-container"><img src="cnh.jfif"></div>
             </a>
 
             <a href="https://wa.me/5513996036192?text=Assunto:CURSOS" class="btn-whatsapp">
-                <div>📚 CURSOS<br><small style="font-weight:normal;color:#666">MOPP e Profissionais</small></div>
+                <div class="btn-text">📚 CURSOS<br><small style="font-weight:normal;color:#666">MOPP e Profissionais</small></div>
                 <div class="thumb-container"><img src="CURSOS.jpeg"></div>
             </a>
 
             <a href="https://wa.me/5513996036192?text=Assunto:ANTT" class="btn-whatsapp">
-                <div>🚛 ANTT<br><small style="font-weight:normal;color:#666">Registro e Renovação</small></div>
+                <div class="btn-text">🚛 ANTT<br><small style="font-weight:normal;color:#666">Registro e Renovação</small></div>
                 <div class="thumb-container"><img src="ANTT.png"></div>
             </a>
 
-            <a href="https://wa.me/5513996036192?text=Assunto:GUINCHO" class="btn-whatsapp">
-                <div>🏗️ GUINCHO<br><small style="font-weight:normal;color:#666">Socorro e Transporte</small></div>
+            <a href="https://wa.me/5513996036192?text=Assunto:LIBERAÇÃO DE PÁTIO" class="btn-whatsapp">
+                <div class="btn-text">🏗️ LIBERAÇÃO DE PÁTIO<br><small style="font-weight:normal;color:#666">Liberamos seu veículo</small></div>
                 <div class="thumb-container"><img src="guincho.png"></div>
             </a>
         </div>
